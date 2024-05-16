@@ -30,3 +30,4 @@ opt.smartcase = true
 -- outlook
 opt.termguicolors = true
 opt.signcolumn = "yes"
+opt.cursorline = true

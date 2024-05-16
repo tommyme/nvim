@@ -34,7 +34,7 @@ require("lazy").setup({
           "MunifTanjim/nui.nvim",
           -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         },
-        keys = { {'<C-b>', "<cmd>Neotree toggle<CR>", desc = 'Toggle Neotree'} },
+        keys = { {'<leader>e', "<cmd>Neotree toggle<CR>", desc = 'Toggle Neotree'} },
         config = true,
     },
     {   -- Windows Switch
@@ -47,11 +47,11 @@ require("lazy").setup({
         "TmuxNavigatePrevious",
       },
       keys = {
-        { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-        { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-        { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-        { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-        { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+        { "<leader>wh", "<cmd>TmuxNavigateLeft<cr>" },
+        { "<leader>wj", "<cmd>TmuxNavigateDown<cr>" },
+        { "<leader>wk", "<cmd>TmuxNavigateUp<cr>" },
+        { "<leader>wl", "<cmd>TmuxNavigateRight<cr>" },
+        { "<leader>w\\", "<cmd>TmuxNavigatePrevious<cr>" },
       },
     },
     {   -- Highlight
@@ -87,13 +87,48 @@ require("lazy").setup({
             }
         },
         keys = {
-            { 'L', '<cmd>bnext<CR>' },
-            { 'H', '<cmd>bprevious<CR>'}
+            { 'L', '<cmd>bnext<CR>', desc = 'Buffer Next' },
+            { 'H', '<cmd>bprevious<CR>', desc = 'Buffer Prev' }
         }
     },
     {   -- Toggle Term
-        'akinsho/toggleterm.nvim', config = true,
-    }
+        'akinsho/toggleterm.nvim',
+        opts = {
+            open_mapping = [[<leader>j]],
+            hide_numbers = true,
+            direction = 'float'
+        },
+        keys = {
+            { '<leader>j', [[<c-\><c-n>]] }
+        }
+    },
+    {   -- Key finder
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+        init = function ()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {}
+    },
+    {   -- Scroll
+        'karb94/neoscroll.nvim',
+        config = true
+    },
+    {   -- VSCode Styled winbar
+        'utilyre/barbecue.nvim',
+        dependencies = { 'SmiteshP/nvim-navic' },
+        config = true
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
+    },
 })
 
 
