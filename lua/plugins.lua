@@ -98,13 +98,14 @@ require("lazy").setup({
     },
     { -- Toggle Term
         'akinsho/toggleterm.nvim',
+        lazy = false,
         opts = {
-            open_mapping = [[<leader>j]],
+            open_mapping = [[<c-j>]],
             hide_numbers = true,
             direction = 'float'
         },
         keys = {
-            { '<leader>j', [[<c-\><c-n>]] }
+            -- { '<leader>j', [[<c-\><c-n>]] }
         }
     },
     { -- Key finder
