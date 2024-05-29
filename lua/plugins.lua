@@ -19,6 +19,9 @@ require("lazy").setup({
         config = function()
             require('tokyonight').setup({
                 transparent = true,
+                on_colors = function(colors)
+                    colors.fg_gutter = "#b2b8cf"
+                end
             })
             vim.cmd [[colorscheme tokyonight]]
         end,
@@ -38,7 +41,12 @@ require("lazy").setup({
             -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         keys = { { '<leader>e', "<cmd>Neotree toggle<CR>", desc = 'Toggle Neotree' } },
-        config = true,
+        opts = {
+            close_if_last_window = true,
+            window = {
+                position = 'left'
+            }
+        }
     },
     { -- Windows Switch
         "christoomey/vim-tmux-navigator",
@@ -50,11 +58,11 @@ require("lazy").setup({
             "TmuxNavigatePrevious",
         },
         keys = {
-            { "<leader>wh",  "<cmd>TmuxNavigateLeft<cr>" },
-            { "<leader>wj",  "<cmd>TmuxNavigateDown<cr>" },
-            { "<leader>wk",  "<cmd>TmuxNavigateUp<cr>" },
-            { "<leader>wl",  "<cmd>TmuxNavigateRight<cr>" },
-            { "<leader>w\\", "<cmd>TmuxNavigatePrevious<cr>" },
+            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
     { -- Highlight
@@ -79,6 +87,7 @@ require("lazy").setup({
     { -- Top Buffer
         'akinsho/bufferline.nvim',
         version = "*",
+        lazy = false,
         dependencies = 'nvim-tree/nvim-web-devicons',
         opts = {
             options = {
@@ -100,7 +109,7 @@ require("lazy").setup({
         'akinsho/toggleterm.nvim',
         lazy = false,
         opts = {
-            open_mapping = [[<c-j>]],
+            open_mapping = [[<c-t>]],
             hide_numbers = true,
             direction = 'float'
         },
@@ -121,24 +130,27 @@ require("lazy").setup({
         'karb94/neoscroll.nvim',
         config = true
     },
+    {
+        'willothy/moveline.nvim',
+        build = 'make'
+    },
     { -- VSCode Styled winbar
         'utilyre/barbecue.nvim',
         dependencies = { 'SmiteshP/nvim-navic' },
         config = true
     },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
+    -- {
+    --     "iamcco/markdown-preview.nvim",
+    --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    --     build = "cd app && yarn install",
+    --     init = function()
+    --         vim.g.mkdp_filetypes = { "markdown" }
+    --     end,
+    --     ft = { "markdown" },
+    -- },
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        ---@type Flash.Config
         opts = {},
         -- stylua: ignore
         keys = {
@@ -166,11 +178,20 @@ require("lazy").setup({
         'williamboman/mason-lspconfig.nvim',
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'rust_analyzer' }
+                ensure_installed = { 'lua_ls', 'rust_analyzer', 'nil_ls' }
             })
             require('mason-lspconfig').setup_handlers {
                 function(server_name)
                     require('lspconfig')[server_name].setup {}
+                end,
+                ['nil_ls'] = function()
+                    require('lspconfig').nil_ls.setup {
+                        settings = {
+                            ['nil'] = {
+                                formatting = { command = { 'nixpkgs-fmt' } }
+                            },
+                        }
+                    }
                 end
             }
         end,
