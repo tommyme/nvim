@@ -38,28 +38,6 @@ return {
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         }
     },
-    {     -- Top Buffer
-        'akinsho/bufferline.nvim',
-        version = "*",
-        lazy = false,
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        opts = {
-            options = {
-                diagnostics = 'nvim_lsp',
-                offsets = { {
-                    filetype = 'neo-tree',
-                    text = 'File Explorer',
-                    hightlight = 'Directory',
-                    text_align = 'left',
-                } }
-            }
-        },
-        keys = {
-            { 'L',          '<cmd>bnext<CR>',     desc = 'Buffer Next' },
-            { 'H',          '<cmd>bprevious<CR>', desc = 'Buffer Prev' },
-            { '<leader>bq', '<cmd>bdelete<cr>',   desc = 'Buffer Close' }
-        }
-    },
     {     -- Toggle Term
         'akinsho/toggleterm.nvim',
         lazy = false,
