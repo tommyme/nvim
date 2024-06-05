@@ -1,11 +1,10 @@
 local opt = vim.opt
-local g = vim.g
 
 -- Macos
-if g.neovide then
-    g.neovide_input_macos_option_key_is_meta = 'both'
-    g.neovide_window_blurred = true
-    g.neovide_transparency = 0.7
+if vim.g.neovide then
+    vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+    vim.g.neovide_window_blurred = true
+    vim.g.neovide_transparency = 0.7
 end
 
 -- line number
@@ -44,4 +43,3 @@ opt.scrolloff = 10
 -- misc
 opt.breakindent = true
 opt.undofile = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
