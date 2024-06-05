@@ -1,4 +1,12 @@
 local opt = vim.opt
+local g = vim.g
+
+-- Macos
+if g.neovide then
+    g.neovide_input_macos_option_key_is_meta = 'both'
+    g.neovide_window_blurred = true
+    g.neovide_transparency = 0.7
+end
 
 -- line number
 opt.relativenumber = true
@@ -17,7 +25,7 @@ opt.wrap = false
 opt.mouse:append("a")
 
 -- clipboard
--- opt.clipboard:append("unnamedplus")
+opt.clipboard:append("unnamedplus")
 
 -- windows
 opt.splitright = true
@@ -31,3 +39,9 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cursorline = true
+opt.scrolloff = 10
+
+-- misc
+opt.breakindent = true
+opt.undofile = true
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }

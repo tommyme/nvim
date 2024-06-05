@@ -16,9 +16,9 @@ keymap.set("n", "<leader>sh", "<C-w>s")
 keymap.set("n", "<leader>qq", "<cmd>q!<CR>")
 keymap.set("n", "<leader>w", "<cmd>w<CR>")
 keymap.set("n", "<leader>wq", "<cmd>wq<CR>")
-keymap.set("n", "<c-<>", "<c-w><")
-keymap.set("n", "<c->>", "<c-w>>")
+keymap.set("n", "<leader>le", vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rrors' })
+keymap.set("n", "<leader>lq", vim.diagnostic.open_float, { desc = 'Show diagnostic [Q]uickfix' })
+
 
 -- cancel highlight
--- keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
-
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
