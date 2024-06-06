@@ -4,7 +4,7 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = { options = { theme = 'tokyonight' } }
     },
-    {     -- Windows Switch
+    { -- Windows Switch
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
@@ -29,8 +29,5 @@ return {
             hide_numbers = true,
             direction = 'float'
         },
-        keys = {
-            -- { '<leader>j', [[<c-\><c-n>]] }
-        }
     },
 }
