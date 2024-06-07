@@ -6,6 +6,9 @@ local servers = {
         }
     },
     rust_analyzer = {},
+    cmake = {
+        filetypes = { 'cmake', 'CMakeLists.txt' }
+    }
 }
 
 if vim.loop.os_uname().sysname == 'Linux' then
