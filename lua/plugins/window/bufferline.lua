@@ -29,7 +29,18 @@ return {
                     vim.cmd.bdelete(buf)
                 end,
                 desc = 'Buffer Close'
-            }
+            },
+
+            -- Bufferline Goto
+            { '1', '<cmd>BufferLineGoToBuffer 1<CR>', desc = 'Buffer Goto 1' },
+            { '2', '<cmd>BufferLineGoToBuffer 2<CR>', desc = 'Buffer Goto 2' },
+            { '3', '<cmd>BufferLineGoToBuffer 3<CR>', desc = 'Buffer Goto 3' },
+            { '4', '<cmd>BufferLineGoToBuffer 4<CR>', desc = 'Buffer Goto 4' },
+            { '5', '<cmd>BufferLineGoToBuffer 5<CR>', desc = 'Buffer Goto 5' },
+            { '6', '<cmd>BufferLineGoToBuffer 6<CR>', desc = 'Buffer Goto 6' },
+            { '7', '<cmd>BufferLineGoToBuffer 7<CR>', desc = 'Buffer Goto 7' },
+            { '8', '<cmd>BufferLineGoToBuffer 8<CR>', desc = 'Buffer Goto 8' },
+            { '9', '<cmd>BufferLineGoToBuffer 9<CR>', desc = 'Buffer Goto 9' },
         }
     },
 }
