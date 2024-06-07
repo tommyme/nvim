@@ -24,9 +24,9 @@ return {
         'neovim/nvim-lspconfig',
         keys = {
             { '<leader>lf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>',                            desc = 'Format Code' },
-            { '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>',                                       desc = 'Show Definition' },
-            { '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>',                                            desc = 'hover' },
-            { '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>',                                      desc = 'Code Action' },
+            { '<leader>ld', '<cmd>Lspsaga peek_definition<CR>',                                            desc = 'Show Definition' },
+            { '<leader>lh', '<cmd>Lspsaga hover_doc<CR>',                                                  desc = 'hover' },
+            { '<leader>la', '<cmd>Lspsaga code_action<CR>',                                                desc = 'Code Action' },
             { '<leader>li', '<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>', desc = 'Toggle inlay hint' }
         },
     },
@@ -47,4 +47,12 @@ return {
             }
         end,
     },
+    {
+        'nvimdev/lspsaga.nvim',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter', -- optional
+            'nvim-tree/nvim-web-devicons',     -- optional
+        },
+        config = true
+    }
 }

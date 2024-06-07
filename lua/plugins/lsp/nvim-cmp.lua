@@ -12,6 +12,12 @@ return {
             local cmp = require('cmp')
             cmp.setup {
                 preselect = cmp.PreselectMode.Item,
+                window = {
+                    documentation = cmp.config.window.bordered(),
+                    completion = cmp.config.window.bordered({
+                        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+                    }),
+                },
                 completion = {
                     completeopt = 'menu,menuone,select',
                 },
