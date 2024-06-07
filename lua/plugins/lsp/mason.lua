@@ -41,7 +41,9 @@ return {
         config = function()
             require('mason-lspconfig').setup_handlers {
                 function(server_name)
+                    local capabilities = require('cmp_nvim_lsp').default_capabilities()
                     local server = servers[server_name] or {}
+                    server.capabilities = capabilities
                     require('lspconfig')[server_name].setup(server)
                 end,
             }
