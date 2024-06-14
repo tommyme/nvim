@@ -1,5 +1,5 @@
 return {
-    {     -- Windows Switch
+    { -- Windows Switch
         "christoomey/vim-tmux-navigator",
         cmd = {
             "TmuxNavigateLeft",
@@ -25,4 +25,5 @@ return {
             direction = 'float'
         },
     },
+    'rcarriga/nvim-notify'
 }
