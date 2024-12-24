@@ -19,7 +19,7 @@ return {
             { 'L', '<cmd>bnext<CR>',     desc = 'Buffer Next' },
             { 'H', '<cmd>bprevious<CR>', desc = 'Buffer Prev' },
             {
-                '<leader>bq',
+                '<leader>c',
                 function()
                     if vim.bo.modified then
                         vim.cmd.write()
