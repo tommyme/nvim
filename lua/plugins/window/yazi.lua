@@ -8,7 +8,7 @@ return {
       {
         "<leader>y",
         "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
+        desc = "🐥 Open yazi at the current file",
       },
       {
         -- Open in the current working directory
