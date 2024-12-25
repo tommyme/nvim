@@ -13,8 +13,7 @@ keymap.set("v", "K", "<cmd>m '>+2<CR>gv=gv")
 -- windows
 keymap.set("n", "<leader>sv", "<C-w>v")
 keymap.set("n", "<leader>sh", "<C-w>s")
-keymap.set("n", "<leader>qq", "<cmd>q!<CR>")
-keymap.set("n", "<leader>wq", "<cmd>wq<CR>")
+keymap.set("n", "<leader>q", "<cmd>q<CR>")
 keymap.set("n", "<leader>w", "<cmd>w<CR>")
 
 -- cancel highlight
