@@ -6,3 +6,4 @@ local map = LazyVim.safe_keymap_set
 -- navigate back
 map("n", "<A-Left>", "<C-o>", { desc = "Navigate back" })
 map("n", "<A-Right>", "<C-i>", { desc = "Navigate forward" })
+map("n", "<C-p>", ":", { noremap = true, silent = false })
