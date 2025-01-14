@@ -3,7 +3,7 @@
 -- Add any additional options here
 vim.g.autoformat = false
 vim.opt.guicursor = {
-  "n-v-c:block-Cursor/lCursor",      -- 普通模式、可视模式和命令模式为块状光标
+  "n-v-c:block-Cursor/lCursor",     -- 普通模式、可视模式和命令模式为块状光标
   "i:block-CursorInsert/lCursor",   -- 插入模式为竖线光标
   "r:block-CursorReplace/lCursor",  -- 替换模式为横线光标
 }
@@ -14,3 +14,6 @@ vim.cmd([[
   highlight CursorInsert guifg=NONE guibg=green
   highlight CursorReplace guifg=NONE guibg=red
 ]])
+
+vim.opt.list = true
+vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<", nbsp = "␣", eol = "↴", space = "·" }
